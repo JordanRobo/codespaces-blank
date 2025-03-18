@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Product 1",
+        "description": "This is a detailed description of product 1. It has several amazing features and benefits.",
+        "price": "$19.99",
+        "features": [
+            "Feature A",
+            "Feature B",
+            "Feature C"
+        ],
+        "image": "https://placehold.co/300x200"
+    },
+    {
+        "id": 2,
+        "name": "Product 2",
+        "description": "Product 2 offers exceptional quality and performance for its price range.",
+        "price": "$29.99",
+        "features": [
+            "Feature X",
+            "Feature Y",
+            "Feature Z"
+        ],
+        "image": "https://placehold.co/300x200"
+    },
+    {
+        "id": 3,
+        "name": "Product 3",
+        "description": "Our best-selling product with top-notch specifications and premium materials.",
+        "price": "$39.99",
+        "features": [
+            "Feature 1",
+            "Feature 2",
+            "Feature 3"
+        ],
+        "image": "https://placehold.co/300x200"
+    },
+    {
+        "id": 4,
+        "name": "Product 4",
+        "description": "An economical choice without compromising on essential features.",
+        "price": "$49.99",
+        "features": [
+            "Feature Alpha",
+            "Feature Beta",
+            "Feature Gamma"
+        ],
+        "image": "https://placehold.co/300x200"
+    },
+    {
+        "id": 5,
+        "name": "Product 5",
+        "description": "The premium option with all bells and whistles for the discerning customer.",
+        "price": "$59.99",
+        "features": [
+            "Feature I",
+            "Feature II",
+            "Feature III"
+        ],
+        "image": "https://placehold.co/300x200"
+    }
+]

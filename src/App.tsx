@@ -1,23 +1,28 @@
-import "./index.css";
-import { APITester } from "./APITester";
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
-import logo from "./logo.svg";
-import reactLogo from "./react.svg";
+// Import layout
+import { MainLayout } from './layouts/MainLayout';
+
+// Import pages
+import { Home } from './pages/Home';
+import { Products } from './pages/Products';
+import { Product } from './pages/Product';
 
 export function App() {
   return (
-    <div className="app">
-      <div className="logo-container">
-        <img src={logo} alt="Bun Logo" className="logo bun-logo" />
-        <img src={reactLogo} alt="React Logo" className="logo react-logo" />
-      </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<Home />} />
+          <Route path="products" element={<Products />} />
+          <Route path="products/:id" element={<Product />} />
 
-      <h1>Bun + React</h1>
-      <p>
-        Edit <code>src/App.tsx</code> and save to test HMR
-      </p>
-      <APITester />
-    </div>
+          {/* Redirect for any unknown paths */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
