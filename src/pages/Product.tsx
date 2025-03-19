@@ -1,16 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import productData from '../lib/products.json';
-
-// Define the Product type for TypeScript
-interface Product {
-    id: number;
-    name: string;
-    description: string;
-    price: string;
-    features: string[];
-    image: string;
-}
+import type { Product } from '../lib';
 
 export function Product() {
     const { id } = useParams<{ id: string }>();
@@ -43,31 +34,26 @@ export function Product() {
     }
 
     return (
-        <div className="product-detail">
-            <h2>{product.name}</h2>
-
-            <div className="product-info">
-                <div className="product-image-container">
+        <div className='flex flex-col mx-auto max-w-[1200px] my-12'>
+            <div className="card card-side bg-base-100 shadow-sm">
+                <figure>
                     <img src={product.image} alt={product.name} className="product-detail-image" />
+                </figure>
+                <div className="card-body">
+                    <h2 className="card-title">{product.name}</h2>
+                    <div className="badge badge-outline badge-primary">{product.full_price}</div>
+                    <p>{product.description}</p>
+
+                    {product.feature.map((feature, index) => (
+                                <div className="badge badge-outline badge-accent" key={index}>{feature}</div>
+                            ))}
+                            
+                    <div className="card-actions justify-end">
+                    <button onClick={() => navigate('/products')} className="back-button">
+                        Back to Products
+                    </button>
+                    </div>
                 </div>
-
-                <p className="description">{product.description}</p>
-                <p className="price">Price: {product.price}</p>
-
-                <div className="features">
-                    <h3>Features:</h3>
-                    <ul>
-                        {product.features.map((feature, index) => (
-                            <li key={index}>{feature}</li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-
-            <div className="navigation-buttons">
-                <button onClick={() => navigate('/products')} className="back-button">
-                    Back to Products
-                </button>
             </div>
         </div>
     );

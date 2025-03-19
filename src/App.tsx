@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 
 // Import layout
 import { MainLayout } from './layouts/MainLayout';
@@ -10,6 +10,11 @@ import { Products } from './pages/Products';
 import { Product } from './pages/Product';
 
 export function App() {
+
+  useEffect(() => {
+    window.adobeDataLayer = window.adobeDataLayer || [];
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>

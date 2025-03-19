@@ -11,6 +11,21 @@ export function Products() {
         // Load the product data
         setProducts(productData);
         setLoading(false);
+
+        let data = {
+            "event": "product_listing-view",
+            "default": {
+                "page": {
+                    "type": "product",
+                    "action": "listing-view",
+                    "list_name": "products"
+                }
+            },
+        }
+
+        if (window.adobeDataLayer) {
+            window.adobeDataLayer.push(data)
+        }
     }, []);
 
     if (loading) {
@@ -18,10 +33,12 @@ export function Products() {
     }
 
     return (
-        <div className="products-page">
-            <h2 className="text-2xl font-bold mb-6">Our Products</h2>
-
-            <div className="products-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className='flex flex-col mx-auto max-w-[1200px] my-12'>
+            <div>
+                <h2 className="text-4xl font-bold mb-12 text-center">Our Products</h2>
+            </div>
+            
+            <div className="grid place-items-center grid-cols-3 gap-4">
                 {products.map(product => (
                     <ProductCard key={product.id} product={product} />
                 ))}

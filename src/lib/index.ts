@@ -4,16 +4,34 @@
 import productData from './products.json';
 export { productData };
 
-// Export DataLayer
-export * from './datalayer';
-
 // Define and export Product interface
 export interface Product {
     id: number;
+    available_size: string[];
+    barcode: string;
+    brand: string;
+    category: string;
+    child_sku: string;
+    color: string;
+    discount: number;
+    feature: string[];
+    full_price: number;
+    gender: string;
+    is_markdown: boolean;
+    listed_price: number;
+    model: string;
     name: string;
+    parent_category: string;
+    parent_sku: string;
+    rating: number;
+    reward_points: number;
+    size: null | string;
+    sku_available: boolean;
+    sku_by_size: null | Record<string, any>;
+    speciality: string;
+    sport: string;
+    story: string;
     description: string;
-    price: string;
-    features: string[];
     image: string;
 }
 
