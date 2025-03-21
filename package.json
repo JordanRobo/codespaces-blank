@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "bun --hot src/index.tsx",
     "build": "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
-    "start": "NODE_ENV=production bun src/index.tsx"
+    "start": "NODE_ENV=production bun src/index.tsx",
+    "migrate": "bun db-init.ts"
   },
   "dependencies": {
     "@adobe/adobe-client-data-layer": "^2.0.2",
@@ -17,7 +18,8 @@
     "bun-plugin-tailwind": "^0.0.15",
     "react": "^19",
     "react-dom": "^19",
-    "react-router-dom": "^7.3.0"
+    "react-router-dom": "^7.3.0",
+    "xid-ts": "1.0.1"
   },
   "devDependencies": {
     "@types/bun": "latest",

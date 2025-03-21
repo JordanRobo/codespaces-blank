@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 // Import layout
 import { MainLayout } from './layouts/MainLayout';
@@ -9,10 +9,13 @@ import { Home } from './pages/Home';
 import { Products } from './pages/Products';
 import { Product } from './pages/Product';
 
-export function App() {
+// Import data layer utilities
+import { initializeDataLayer } from './lib/data-layer';
 
+export function App() {
   useEffect(() => {
-    window.adobeDataLayer = window.adobeDataLayer || [];
+    // Initialize the data layer
+    initializeDataLayer();
   }, []);
 
   return (

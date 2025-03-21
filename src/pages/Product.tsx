@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import productData from '../lib/products.json';
 import type { Product } from '../lib';
+import { useDataLayerEvent } from '../lib/useDataLayer';
 
 export function Product() {
     const { id } = useParams<{ id: string }>();
@@ -15,6 +16,8 @@ export function Product() {
         setProduct(foundProduct || null);
         setLoading(false);
     }, [id]);
+
+    useDataLayerEvent('product_view', { name: 'Products' });
 
     if (loading) {
         return <div className="loading">Loading product details...</div>;
